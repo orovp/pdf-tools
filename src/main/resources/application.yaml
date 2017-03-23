@@ -1,0 +1,8 @@
+default:
+  output:
+    dir:
+      diff: /Users/orovp/Documents/pdfToCompare/diff
+  input:
+    dir:
+      before: /Users/orovp/Documents/pdfToCompare/before
+      after: /Users/orovp/Documents/pdfToCompare/after
