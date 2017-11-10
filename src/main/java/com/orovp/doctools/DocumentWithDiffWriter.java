@@ -21,11 +21,11 @@ public class DocumentWithDiffWriter implements ItemWriter<Document>{
 		LOG.info("Starting Diff Writer");
 		for (Document doc : documents) {
 			int pageNumber = 1;
-			File outputFolder = new File(outputDir+ "/" + doc.getFileName());
-			LOG.info("Creating diff subfolder for document " + doc.getFileName());
-			outputFolder.mkdirs();
 			
-			while (outputFolder.exists() && doc.getDiff().containsKey(pageNumber-1)){				
+			while (doc.getDiff().containsKey(pageNumber-1)){	
+				File outputFolder = new File(outputDir+ "/" + doc.getFileName());
+				LOG.info("Creating diff subfolder for document " + doc.getFileName());
+				outputFolder.mkdirs();
 				File outputFile = new File(outputDir + "/" + doc.getFileName() + "/page-" + pageNumber + ".png");
 				LOG.info("Writing file for document " + doc.getFileName() + " and page number (" + pageNumber +")");
 				ImageIO.write(doc.getDiff().get(pageNumber-1), "png", outputFile);
